@@ -25,9 +25,11 @@ Matching an HTML Tag:
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
-- [Character Classes](#character-classes)
+- [Grouping Constructs](#grouping-constructs)
 - [Bracket Expressions](#bracket-expressions)
+- [Character Classes](#character-classes)
+- [The OR Operator](#the-or-operator)
+- [Flags](#flags)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
 
 ## Regex Components
@@ -62,7 +64,7 @@ Matches any character in the square brackets. For example 	`[nN]` `[oO]` matches
 
 Character classes are components within our regular expression that tells us what type of characters to expect. In our example our character classes are confined within brackets `[]`. For our example we have 2 character classes: `[a-f0-9]` and `[a-f0-9]` which searches for the same values. We will be breaking down what the characters are searching within these character classes. `a-f` searches for letters `a-f` and `0-9` searches for digits `0-9`.
 
-### OR Operator
+### The OR Operator
 
 The 'OR' Operator is not present in our example code for matching against an email, so for now, in order to talk about the OR Operator, we will take a look at the following code for matching against a hex code:
 
@@ -95,9 +97,6 @@ Where the slashes denote where the regular expresssion starts and ends. A flag c
 `/^#`?`([a-f0-9]{6}|[a-f0-9]{3})$/`
 
 A greedy match tries to match an element as many times as possible. Whereas, a lazy match tries to match an element as few times as possible. In our example we have `?` which signifies lazy quantifier. This is referred to a lazy quantifier because it causes the regular expression engine to match as few occurances as possible. We can simply turn this lazy match into a greedy one by adding a `?`.
-
-### Boundaries
-If in a string, we are looking for for specific words. Boundaries are not used in the given matching an email code.
 
 ## Author
 
