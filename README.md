@@ -4,11 +4,22 @@ Computer Science for JavaScript Challenge Regex Tutorial
 It is a tutorial that explains how a specific regular expression, or regex, functions by breaking down each part of the expression and describing what it does.
 
 ## Summary
-The following snippet of code will be used throughout this tutorial to give specific examples on how the different components of regex can be used. The following code snippet can be used for matching a Hex Value. A common use for this code is for validation, to make sure that an email follows the correct format.
+The following snippets of code will be used throughout this tutorial to give specific examples on how the different components of regex can be used. A common use for this code is for validation, to make sure that an email follows the correct format.
 
 Matching a Hex Value:
 
 `/^#?([a-f0-9]{6}|[a-f0-9]{3})$/`
+
+Matching an Email: 
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
+
+Matching a URL: 
+`/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/`
+
+Matching an HTML Tag: 
+`/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/`
+
+
 
 ## Table of Contents
 
@@ -25,7 +36,7 @@ Matching a Hex Value:
 
 `/`^`#?([a-f0-9]{6}|[a-f0-9]{3})`$`/`
 
-Anchors are a different breed. They do not match any character at all. Instead, they match a position before, after, or between characters. They can be used to “anchor” the regex match at a certain position. The caret `^` matches the position before the first character in the string. Applying `^a` to `abc` matches `a`. `^b` does not match `abc` at all, because the `b` cannot be matched right after the start of the string, matched by `^`. See below for the inside view of the regex engine.
+The anchor is a term which defines the start and end of the expression. They can be used to “anchor” the regex match at a certain position. The caret `^` matches the position before the first character in the string. Applying `^a` to `abc` matches `a`. `^b` does not match `abc` at all, because the `b` cannot be matched right after the start of the string, matched by `^`. See below for the inside view of the regex engine.
 Similarly, `$` matches right after the last character in the string. `c$` matches `c` in `abc`, while `a$` does not match at all.
 
 ### Quantifiers
@@ -75,5 +86,5 @@ If in a string, we are looking for for specific words. Boundaries are not used i
 ## Author
 
 Roman Tazhdynov
- 
+
 [GitHub](https://github.com/tajdinov)
