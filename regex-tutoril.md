@@ -45,6 +45,23 @@ Similarly, `$` matches right after the last character in the string. `c$` matche
 
 Quantifiers are used to communicate how many characters are expected. Quantifiers specify how many instances of a character, group, or character class must be present in the input for a match to be found. By default, quantifiers are greedy, and will match as many characters as possible. If the "`,+,?,{}`" characters are found within regular expressions, they are considered quantifiers. The `?` indicates the expression to match `0` or `1`time. As mentioned in the summary above because there are 2 types of formats we'll use the or operator to distinguish which format we are using. In our Hex Value regular expression we have `{6}` (Hex Triplet Format) and `{3}` (Shorthand Hex Format), this indicates that the length of the component preceding these quantifiers should be `6` for `{6}` and `3` for `{3}`.
 
+### Grouping Constructs
+
+Grouping constructs delineate the subexpressions of a regular expression and capture the substrings of an input string.
+
+### Bracket Expressions
+
+`/^#?`([a-f0-9]{6}|[a-f0-9]{3})`$/`
+
+Matches any character in the square brackets. For example 	`[nN]` `[oO]` matches `no`, `nO`, `No`, and `NO`.
+`gr[ae]y` matches both spellings of the word `'grey'`; that is, `gray` and `grey`.
+
+### Character Classes
+
+`/^#?(`[a-f0-9]`{6}|`[a-f0-9]{3}`)$/`
+
+Character classes are components within our regular expression that tells us what type of characters to expect. In our example our character classes are confined within brackets `[]`. For our example we have 2 character classes: `[a-f0-9]` and `[a-f0-9]` which searches for the same values. We will be breaking down what the characters are searching within these character classes. `a-f` searches for letters `a-f` and `0-9` searches for digits `0-9`.
+
 ### OR Operator
 
 The 'OR' Operator is not present in our example code for matching against an email, so for now, in order to talk about the OR Operator, we will take a look at the following code for matching against a hex code:
@@ -61,12 +78,6 @@ What we see here, is an expression for matching a hex code that uses the OR Oper
 
 Notice both of the above examples are referencing the same character class `[a-f0-9]`. This is because the OR Operator is looking for a match that starts with a # and then either a 6 character long string or a 3 character long string. It does not matter which one it is, as long as it starts with a # and then either a 6 character long string or a 3 character long string.
 
-### Character Classes
-
-`/^#?(`[a-f0-9]`{6}|`[a-f0-9]{3}`)$/`
-
-Character classes are components within our regular expression that tells us what type of characters to expect. In our example our character classes are confined within brackets `[]`. For our example we have 2 character classes: `[a-f0-9]` and `[a-f0-9]` which searches for the same values. We will be breaking down what the characters are searching within these character classes. `a-f` searches for letters `a-f` and `0-9` searches for digits `0-9`.
-
 ### Flags
 
 A flag is not used in the matching email code in this tutorial. A regular expression typically looks like this:
@@ -78,13 +89,6 @@ Where the slashes denote where the regular expresssion starts and ends. A flag c
 - `g` which stands for "global" which will allow for matching all the instances within a string that follow the matching guidelines set in the regular expression.
 - `m` which stands for "multiline" which will search line by line rather than searching through a string as a whole.
 - `i` which stands for "insensitive" will make the regular expression case-insensitive, so capitals and lower-case letters will not deture the matching.
-
-### Bracket Expressions
-
-`/^#?`([a-f0-9]{6}|[a-f0-9]{3})`$/`
-
-Matches any character in the square brackets. For example 	`[nN]` `[oO]` matches `no`, `nO`, `No`, and `NO`.
-`gr[ae]y` matches both spellings of the word `'grey'`; that is, `gray` and `grey`.
 
 ### Greedy and Lazy Match
 
